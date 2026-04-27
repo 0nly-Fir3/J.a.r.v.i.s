@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J.A.R.V.I.S Full PC Control</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="orb"></div>
+        <div>
+          <h1>J.A.R.V.I.S</h1>
+          <p>Google AI Studio + Local PC Control</p>
+        </div>
+      </div>
+
+      <div class="status-card">
+        <div class="row"><span>Server</span><b id="serverState">Checking...</b></div>
+        <div class="row"><span>API</span><b id="apiState">...</b></div>
+        <div class="row"><span>Voice</span><b id="voiceState">Ready</b></div>
+      </div>
+
+      <div class="commands">
+        <h2>Commands</h2>
+        <button data-cmd="take screenshot">Take screenshot</button>
+        <button data-cmd="screenshot and analyze it">Analyze screen</button>
+        <button data-cmd="open notepad">Open Notepad</button>
+        <button data-cmd="open calculator">Open Calculator</button>
+        <button data-cmd="open downloads">Open Downloads</button>
+        <button data-cmd="system info">PC status</button>
+        <button data-cmd="read clipboard">Read clipboard</button>
+        <button data-cmd="press ctrl + l">Press Ctrl + L</button>
+      </div>
+
+      <div class="hint">
+        <b>Examples</b>
+        <p>open chrome</p>
+        <p>google best RTX 3080 driver</p>
+        <p>press alt + tab</p>
+        <p>type hello world</p>
+        <p>move mouse to 500 300</p>
+        <p>scroll down</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h3>Desktop Assistant</h3>
+          <p>Use normal chat or direct PC commands.</p>
+        </div>
+        <div class="toggles">
+          <label><input type="checkbox" id="speakToggle" /> Speak replies</label>
+          <label><input type="checkbox" id="autoSendVoice" checked /> Auto-send voice</label>
+        </div>
+      </div>
+
+      <section id="chat" class="chat"></section>
+
+      <form id="form" class="inputbar">
+        <button type="button" id="micBtn" title="Voice input">🎙️</button>
+        <input id="input" autocomplete="off" placeholder="Ask J.A.R.V.I.S or type a PC command..." />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

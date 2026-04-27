@@ -1,0 +1,8 @@
+flask
+flask-cors
+python-dotenv
+google-genai
+pyautogui
+pillow
+pyperclip
+psutil
