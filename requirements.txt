@@ -1,0 +1,7 @@
+flask
+psutil
+pyautogui
+pillow
+pycaw
+comtypes
+pyperclip

@@ -1,0 +1,10 @@
+{
+    "downloads": "%USERPROFILE%\\Downloads",
+    "desktop": "%USERPROFILE%\\Desktop",
+    "documents": "%USERPROFILE%\\Documents",
+    "pictures": "%USERPROFILE%\\Pictures",
+    "music": "%USERPROFILE%\\Music",
+    "videos": "%USERPROFILE%\\Videos",
+    "home": "%USERPROFILE%",
+    "explorer": "explorer.exe"
+}
