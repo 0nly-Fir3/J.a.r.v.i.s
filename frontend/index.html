@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JARVIS V10</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel hero">
+      <div class="topbar">
+        <div>
+          <p class="eyebrow">OpenRouter Personal OS Layer</p>
+          <h1>JARVIS V10</h1>
+        </div>
+        <div id="statusBadge" class="badge sleeping">Sleeping</div>
+      </div>
+      <div class="orb-wrap">
+        <div id="orb" class="orb sleeping"><span></span></div>
+      </div>
+      <div class="controls">
+        <button id="listenBtn">Start always-listening mode</button>
+        <button id="wakeBtn">Wake</button>
+        <button id="sleepBtn">Sleep</button>
+        <button id="interruptBtn">Interrupt</button>
+        <button id="testAudioBtn">Test Audio</button>
+      </div>
+      <div class="settings-row">
+        <label><input id="useVoice" type="checkbox" checked /> Voice replies</label>
+        <label><input id="useEdgeTts" type="checkbox" checked /> Edge TTS</label>
+        <label><input id="autoListen" type="checkbox" checked /> Keep listening</label>
+      </div>
+      <p id="heard" class="heard">Say “Hey Jarvis” to wake me.</p>
+    </section>
+
+    <section class="panel chat-panel">
+      <div id="chat" class="chat"></div>
+      <form id="chatForm" class="chat-form">
+        <input id="messageInput" autocomplete="off" placeholder="Type or speak a command..." />
+        <button>Send</button>
+      </form>
+    </section>
+
+    <aside class="panel side">
+      <h2>Fast commands</h2>
+      <div class="cmds">
+        <button data-cmd="open google docs and write me an essay about the enlightenment">docs essay</button>
+        <button data-cmd="create txt file open it and write hello from jarvis">txt + open</button>
+        <button data-cmd="open chrome and search for best rtx 3080 driver">chrome search</button>
+        <button data-cmd="close current tab">close tab</button>
+        <button data-cmd="reopen closed tab">reopen tab</button>
+        <button data-cmd="list bookmarks">bookmarks</button>
+        <button data-cmd="read screen">read screen</button>
+        <button data-cmd="screen targets">screen targets</button>
+        <button data-cmd="press blue button">press blue</button>
+        <button data-cmd="start writing mode">writing mode</button>
+        <button data-cmd="undo last action">undo</button>
+        <button data-cmd="screenshot privacy">screenshot privacy</button>
+        <button data-cmd="chrome bridge status">chrome bridge</button>
+        <button data-cmd="summarize this page">summarize page</button>
+        <button data-cmd="list chrome tabs">chrome tabs</button>
+        <button data-cmd="what am i looking at">what am I seeing</button>
+        <button data-cmd="fix this error">fix error</button>
+        <button data-cmd="list routines">routines</button>
+        <button data-cmd="project summary">project</button>
+        <button data-cmd="rescan files">rescan files</button>
+        <button data-cmd="show command log">command log</button>
+        <button data-cmd="what do you remember">memory</button>
+        <button data-cmd="rescan apps">rescan apps</button>
+      </div>
+      <h2>State</h2>
+      <pre id="stateBox">Ready.</pre>
+    </aside>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

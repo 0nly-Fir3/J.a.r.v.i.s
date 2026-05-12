@@ -1,0 +1,32 @@
+JARVIS V4 - Reliability + Undo + Writing Mode
+
+New in V4:
+- Screenshot privacy mode: internal screenshots go to data/screen_cache and auto-delete after SCREENSHOT_RETENTION_MINUTES.
+- Manual screenshots still save normally in screenshots/.
+- Screen target memory: OCR boxes and colored-button coordinates are cached so commands can still work after old screenshots are deleted.
+- Color target clicking: say "press blue button" or "click blue button".
+- Screen targets command: say "screen targets" or "what can you click".
+- Command log: say "show command log".
+- Undo: say "undo last action" after close tab or paste actions.
+- Writing mode: say "start writing mode" and then dictate text. Say "new paragraph" or "stop writing mode".
+- Better Google Docs paste flow: opens docs.new, waits, clicks document body, then pastes generated text.
+
+Screenshot privacy design:
+- Internal screenshots are needed for OCR/vision/clicking visible things.
+- V4 does not need to keep every screenshot forever.
+- It stores useful targets like text boxes and colored button coordinates in memory.
+- Old internal screenshots are deleted automatically by default.
+- To keep internal screenshots for debugging, set KEEP_INTERNAL_SCREENSHOTS=true in .env.
+- To change retention time, set SCREENSHOT_RETENTION_MINUTES=15 or another number.
+
+Recommended tests:
+1. ocr status
+2. read screen
+3. screen targets
+4. press blue button
+5. close current tab
+6. undo last action
+7. start writing mode
+8. hello this is dictation
+9. new paragraph
+10. stop writing mode

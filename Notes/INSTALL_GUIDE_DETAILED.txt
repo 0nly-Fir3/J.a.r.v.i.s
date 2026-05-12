@@ -1,0 +1,241 @@
+JARVIS V10 - DETAILED INSTALL GUIDE
+====================================
+
+SECTION 1 — WHAT THIS BUILD DOES
+--------------------------------
+This package runs JARVIS locally on your Windows PC. It gives you:
+- OpenRouter-powered AI responses and planning
+- Browser control through a Chrome extension bridge
+- Windows app opening/closing
+- keyboard and mouse actions
+- writing mode / dictation flow
+- file creation, generated notes, and project notes
+- screen reading, screenshots, OCR support
+- memory, custom commands, routines, and projects
+
+SECTION 2 — PREPARE YOUR PC
+---------------------------
+1. Make sure Chrome is installed.
+2. Make sure Python is available.
+   The launcher tries Python 3.12 first, then 3.11, 3.10, py -3, and python.
+   Python 3.12 is the best option for this project.
+
+3. Create an OpenRouter API key.
+   You only need to paste it into the .env file.
+
+4. If you want OCR features:
+   Install Tesseract OCR and confirm this file exists:
+   C:\Users\shero\AppData\Local\Programs\Tesseract-OCR\tesseract.exe
+
+   If your path differs, edit TESSERACT_CMD in .env.
+
+SECTION 3 — EXTRACT THE ZIP
+---------------------------
+Extract the folder to a location without weird symbols or cloud-sync complications if possible.
+
+Good example:
+C:\Users\shero\Desktop\JARVIS_V10
+
+Avoid:
+- running directly inside the ZIP
+- deeply nested temporary folders
+- OneDrive-controlled folders if Windows file permissions become annoying
+
+SECTION 4 — RUN THE INSTALLER
+-----------------------------
+1. Double-click:
+   start.bat
+
+2. First launch creates:
+   .env
+
+3. Notepad opens with settings. Change this:
+   OPENROUTER_API_KEY=your_openrouter_key_here
+
+4. Paste your actual key, save, close Notepad.
+
+5. The installer:
+   - creates .venv if possible
+   - installs required Python packages
+   - installs optional packages for TTS, OCR, and UI automation
+   - starts the Flask server
+   - opens the local web UI
+
+6. Keep the CMD window open while JARVIS is running.
+
+SECTION 5 — .ENV SETTINGS YOU SHOULD KNOW
+-----------------------------------------
+OPENROUTER_API_KEY=...
+Required. Without this, AI features will not work.
+
+OPENROUTER_MODEL=google/gemini-2.5-flash
+General AI model.
+
+OPENROUTER_VISION_MODEL=google/gemini-2.5-flash
+Vision model used for screenshot/page analysis where supported.
+
+PORT=5050
+Local server port.
+
+ENABLE_SHELL=false
+Leave false unless you intentionally want command-line execution.
+
+ENABLE_DESTRUCTIVE_ACTIONS=false
+Leave false unless you explicitly want risky operations enabled.
+
+KEEP_INTERNAL_SCREENSHOTS=false
+Internal screenshots are temporary by default.
+
+SCREENSHOT_RETENTION_MINUTES=15
+Internal screen-cache retention.
+
+TESSERACT_CMD=C:\Users\shero\AppData\Local\Programs\Tesseract-OCR\tesseract.exe
+Path to Tesseract executable.
+
+BROWSER=chrome
+Primary browser for this build.
+
+JARVIS_SILENT_MODE=false
+Normal spoken replies.
+
+SECTION 6 — LOAD THE CHROME BRIDGE EXTENSION
+---------------------------------------------
+1. Open Chrome.
+2. Visit:
+   chrome://extensions
+3. Enable Developer mode.
+4. Click Load unpacked.
+5. Select:
+   chrome_extension
+
+Important:
+Select the actual chrome_extension folder that contains manifest.json.
+
+6. Open a normal page such as:
+   https://www.google.com
+
+7. In JARVIS, type:
+   chrome bridge status
+
+Expected:
+It should say the bridge is connected.
+
+SECTION 7 — TEST THE CHROME BRIDGE
+-----------------------------------
+Run these:
+- chrome bridge status
+- list chrome tabs
+- summarize this page
+- list bookmarks
+- open the third bookmark
+
+If the bridge works, CMD should show requests such as:
+- POST /api/chrome/heartbeat
+- POST /api/chrome/state
+- GET /api/chrome/pending
+
+SECTION 8 — TEST CORE JARVIS
+----------------------------
+Try:
+- open notepad
+- close notepad
+- open Chrome and search for OpenRouter
+- close current tab
+- reopen closed tab
+- next tab
+- previous tab
+- refresh page
+
+SECTION 9 — TEST GOOGLE DOCS FLOW
+---------------------------------
+You said you are already logged into Google in Chrome.
+
+Try:
+- open Google Docs
+- open Google Docs and write me a short essay about the Enlightenment
+
+If Docs opens but text does not paste:
+- wait for the blank document to load
+- say: paste last text
+
+SECTION 10 — TEST WRITING MODE
+------------------------------
+Open Notepad, then:
+- start writing mode
+- this is a test sentence
+- new paragraph
+- this is the second paragraph
+- stop writing mode
+
+Expected:
+- normal speech gets typed
+- control phrases such as "stop writing mode" should stop the mode rather than be typed
+
+SECTION 11 — FILE CREATION AND NOTES
+------------------------------------
+Try:
+- create txt file open it and write hello from Jarvis
+- where did you save that
+- open generated files folder
+
+Research-note flow:
+- research budget anti stick drift controllers and make notes
+- where did you save that
+- open latest notes
+
+The patch is designed to create an actual note file instead of only reporting completion.
+
+SECTION 12 — MEMORY / PROJECTS / ROUTINES
+-----------------------------------------
+Memory:
+- remember that my current main project is JARVIS V10
+- what do you remember
+
+Projects:
+- switch to Guardian Angel project
+- save project note this is important
+- project summary
+
+Routines:
+- create routine called homework mode with open Google Docs, start writing mode
+- start homework mode
+
+Custom commands:
+- when I say school site do open Google Docs
+- school site
+
+SECTION 13 — SCREEN READING
+---------------------------
+Best if Tesseract is configured.
+
+Try:
+- ocr status
+- read screen
+- screenshot and analyze
+- what am I looking at
+- highlight login
+- click download
+
+SECTION 14 — REINSTALL WITHOUT LOSING SETTINGS
+----------------------------------------------
+Run:
+clean_reinstall.bat
+
+This removes the virtual environment and rebuilds packages.
+It should keep:
+- .env
+- memory
+- screenshots
+- generated files
+
+SECTION 15 — RECOMMENDED ORDER FOR REAL TESTING
+------------------------------------------------
+1. Start JARVIS
+2. Check Chrome bridge
+3. Test text typing manually
+4. Test voice commands
+5. Test writing mode
+6. Test Google Docs
+7. Test generated files / notes
+8. Test OCR/screen interaction
+9. Test routines/projects/custom commands

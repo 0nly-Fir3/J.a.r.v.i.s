@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "JARVIS Local Browser Bridge - Deadlock Fix",
+  "version": "1.0.1",
+  "description": "Connects Chrome tabs, bookmarks, page text, links, and buttons to local JARVIS.",
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "http://127.0.0.1:5050/*"
+  ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "JARVIS Bridge",
+    "default_popup": "popup.html"
+  }
+}

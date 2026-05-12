@@ -1,0 +1,71 @@
+JARVIS V10 - FEATURE TEST CHECKLIST
+===================================
+
+A. SERVER
+[ ] start.bat opens CMD and JARVIS UI
+[ ] http://127.0.0.1:5050 loads
+
+B. AUDIO
+[ ] Test Audio button works
+[ ] JARVIS can speak replies
+[ ] microphone permission allowed
+
+C. CHROME BRIDGE
+[ ] extension loaded from chrome_extension
+[ ] normal website open, not chrome://extensions
+[ ] "chrome bridge status" works
+[ ] "list chrome tabs" works
+[ ] "summarize this page" works
+
+D. PC CONTROL
+[ ] open notepad
+[ ] close notepad
+[ ] open Chrome and search for OpenRouter
+[ ] close current tab
+[ ] reopen closed tab
+
+E. GOOGLE DOCS
+[ ] open Google Docs
+[ ] open Google Docs and write me a short essay about AI
+[ ] paste last text works if needed
+
+F. WRITING MODE
+[ ] start writing mode
+[ ] dictated sentence gets typed
+[ ] new paragraph works
+[ ] stop writing mode exits without typing the phrase
+
+G. FILES / NOTES
+[ ] create txt file open it and write hello from Jarvis
+[ ] where did you save that
+[ ] open generated files folder
+[ ] research budget anti stick drift controllers and make notes
+[ ] open latest notes
+
+H. MEMORY / PROJECTS
+[ ] remember something
+[ ] what do you remember
+[ ] switch to Guardian Angel project
+[ ] save project note...
+[ ] project summary
+
+I. ROUTINES / CUSTOM COMMANDS
+[ ] create routine called homework mode...
+[ ] start homework mode
+[ ] when I say school site do open Google Docs
+[ ] school site
+
+J. OCR / VISION
+[ ] ocr status
+[ ] read screen
+[ ] screenshot and analyze
+[ ] highlight login
+[ ] click download
+
+K. TROUBLESHOOTING OUTPUT TO SHARE
+If a feature fails, collect:
+- command said/typed
+- what happened
+- what should have happened
+- CMD lines around the moment
+- any extension error shown in chrome://extensions

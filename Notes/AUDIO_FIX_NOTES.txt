@@ -1,0 +1,15 @@
+JARVIS V4 Audio Fix
+
+This patch fixes silent replies by:
+- Adding a Test Audio button
+- Enabling Edge TTS by default
+- Using unique MP3 files instead of overwriting reply.mp3
+- Falling back to browser speech if Edge TTS fails
+- Pausing speech recognition while JARVIS talks, then restarting it
+- Adding /api/tts/status for diagnostics
+
+How to test:
+1. Start JARVIS.
+2. Open http://127.0.0.1:5050
+3. Click Test Audio.
+4. If silent, check Windows volume mixer and Chrome site sound permission.

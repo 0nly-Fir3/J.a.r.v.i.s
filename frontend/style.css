@@ -1,0 +1,87 @@
+:root {
+  --bg: #05070b;
+  --panel: rgba(255,255,255,0.06);
+  --panel2: rgba(255,255,255,0.09);
+  --text: #eaf2ff;
+  --muted: #9fb0c7;
+  --line: rgba(255,255,255,0.12);
+  --accent: #7ee7ff;
+  --hot: #ff6b9d;
+  --ok: #58ffad;
+  --warn: #ffd36e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 20%, #10233a, var(--bg) 48%, #02030a);
+  color: var(--text);
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  overflow: hidden;
+}
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 360px minmax(420px, 1fr) 300px;
+  gap: 18px;
+  padding: 18px;
+}
+.panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--panel), rgba(255,255,255,0.035));
+  border-radius: 28px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px);
+}
+.hero { padding: 22px; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.eyebrow { margin: 0; color: var(--muted); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+h1 { margin: 4px 0 0; font-size: 38px; letter-spacing: -0.04em; }
+h2 { margin: 0 0 14px; font-size: 16px; color: var(--muted); }
+.badge { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--muted); }
+.badge.awake { color: var(--ok); border-color: rgba(88,255,173,.5); }
+.badge.listening { color: var(--accent); border-color: rgba(126,231,255,.5); }
+.badge.thinking { color: var(--warn); border-color: rgba(255,211,110,.5); }
+.badge.speaking { color: var(--hot); border-color: rgba(255,107,157,.5); }
+.orb-wrap { flex: 1; display: grid; place-items: center; min-height: 260px; }
+.orb {
+  width: 210px; height: 210px; border-radius: 50%; position: relative;
+  display: grid; place-items: center;
+  background: radial-gradient(circle, rgba(126,231,255,0.65), rgba(126,231,255,0.04) 45%, transparent 65%);
+  box-shadow: 0 0 30px rgba(126,231,255,.2), inset 0 0 60px rgba(126,231,255,.15);
+  border: 1px solid rgba(126,231,255,.25);
+  transition: .25s ease;
+}
+.orb span { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,.88); box-shadow: 0 0 48px rgba(126,231,255,.9); }
+.orb.sleeping { filter: grayscale(1); opacity: .35; transform: scale(.92); }
+.orb.listening { animation: pulse 1.5s infinite; }
+.orb.thinking { animation: rotate 2s linear infinite; }
+.orb.speaking { animation: pulse .7s infinite; background: radial-gradient(circle, rgba(255,107,157,.7), rgba(255,107,157,.05) 45%, transparent 65%); }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+button {
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-weight: 650;
+}
+button:hover { border-color: rgba(126,231,255,.65); background: rgba(126,231,255,.12); }
+.settings-row { display: grid; gap: 8px; margin-top: 16px; color: var(--muted); font-size: 14px; }
+.heard { margin: 18px 0 0; color: var(--muted); min-height: 42px; }
+.chat-panel { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+.chat { flex: 1; overflow: auto; padding: 22px; scroll-behavior: smooth; }
+.msg { max-width: 86%; margin: 0 0 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 20px; white-space: pre-wrap; line-height: 1.45; }
+.msg.user { margin-left: auto; background: rgba(126,231,255,.1); }
+.msg.jarvis { background: rgba(255,255,255,.055); }
+.meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+.chat-form { display: flex; gap: 10px; padding: 14px; border-top: 1px solid var(--line); }
+input { flex: 1; padding: 15px 16px; border-radius: 18px; border: 1px solid var(--line); background: rgba(0,0,0,.22); color: var(--text); outline: none; }
+.side { padding: 20px; overflow: auto; }
+.cmds { display: grid; gap: 9px; margin-bottom: 22px; }
+.cmds button { text-align: left; font-size: 13px; padding: 10px 12px; }
+pre { white-space: pre-wrap; color: var(--muted); font-family: Consolas, monospace; font-size: 12px; line-height: 1.45; }
+@media (max-width: 1100px) { .app { grid-template-columns: 1fr; overflow: auto; } body { overflow: auto; } .hero { min-height: 620px; } .side { min-height: 300px; } }

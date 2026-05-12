@@ -1,0 +1,14 @@
+flask
+flask-cors
+python-dotenv
+requests
+pyautogui
+pyperclip
+psutil
+pygetwindow
+keyboard
+mouse
+pillow
+python-docx
+pypdf
+python-pptx

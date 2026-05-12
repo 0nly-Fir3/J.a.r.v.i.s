@@ -1,0 +1,24 @@
+JARVIS V10 Reliability Patch
+
+Fixes:
+- Autopilot research notes now always creates a notes file in generated_files/ and opens it.
+- Autopilot no longer says only "6 steps done" without telling you what was saved.
+- Added "where did you save that" / "where are the notes".
+- Added "open latest notes" / "open generated files folder".
+- Added better parsing for "create txt file open it and write ...".
+- Added extra speech corrections for common mishears around autopilot, notes, and anti-stick-drift.
+
+Test commands:
+- research budget anti stick drift controllers and make notes
+- where did you save that
+- open latest notes
+- open generated files folder
+- create txt file open it and write this is a test
+- show command log
+
+Notes are saved in:
+  generated_files/
+
+If JARVIS misunderstands you, say:
+  show command log
+Then send the line that shows heard='...' and normalized='...'.

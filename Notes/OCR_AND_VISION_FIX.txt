@@ -1,0 +1,25 @@
+READ SCREEN / OCR FIX
+
+If "read screen" says OCR failed, that usually means the Python package pytesseract is installed but the actual Windows Tesseract OCR app is not installed.
+
+Commands added in this version:
+- ocr status
+- test vision
+- read screen
+- screenshot and analyze
+
+Install Tesseract OCR for Windows if you want exact clickable text positions:
+1. Install Tesseract OCR for Windows.
+2. Default install path should be:
+   C:\Program Files\Tesseract-OCR\tesseract.exe
+3. Restart JARVIS.
+4. Say: ocr status
+
+If you do not want local OCR, use:
+- screenshot and analyze
+- test vision
+
+Also make sure your .env has a vision-capable OpenRouter model:
+OPENROUTER_VISION_MODEL=put-a-vision-capable-model-here
+
+If your normal chat model is text-only, JARVIS can still chat, but screen analysis will be weak or fail.

@@ -1,0 +1,26 @@
+JARVIS V3 UPGRADE SUMMARY
+=========================
+
+Added:
+- Task planner layer before normal command routing.
+- Chrome-first browser commands.
+- Google Docs writing workflow via docs.new.
+- Local text/Word/PowerPoint creation workflows.
+- Open-created-file and paste-last-text context.
+- Chrome bookmark reader and opener.
+- Short clean app-closing responses.
+- Site aliases such as Google Docs, Gmail, YouTube, Canva, GitHub.
+- Stronger voice corrections for tab/docs/search/file commands.
+
+Important commands:
+- open google docs and write me an essay about...
+- create txt file open it and write...
+- create a word document about... and open it
+- open chrome and search for...
+- close current tab
+- reopen closed tab
+- open the third bookmark
+- list bookmarks
+- close file explorer
+- paste last text
+- open last file

@@ -1,0 +1,35 @@
+WHY YOUR INSTALL FAILED
+
+Your Python version is too new for rapidocr-onnxruntime. The old package required Python older than 3.13, so pip stopped before installing python-dotenv. That caused:
+
+ModuleNotFoundError: No module named 'dotenv'
+
+WHAT CHANGED IN THIS FIXED BUILD
+
+1. Removed rapidocr-onnxruntime from requirements.
+2. Made OCR optional instead of install-breaking.
+3. Split installs into required and optional packages.
+4. start.bat now stops only if required packages fail.
+5. JARVIS can start even if optional OCR/voice packages fail.
+
+IMPORTANT FOR SCREEN CLICKING / HIGHLIGHTING
+
+Basic screenshots and screenshot analysis work without local OCR.
+For exact commands like:
+- click download
+- highlight login
+- select invoice
+
+JARVIS needs a local OCR engine. This fixed build uses pytesseract as the optional local OCR wrapper.
+
+To enable stronger OCR on Windows:
+1. Install Tesseract OCR from the official UB Mannheim Windows builds.
+2. During install, keep the default path:
+   C:\Program Files\Tesseract-OCR\tesseract.exe
+3. Restart JARVIS.
+
+Without Tesseract, use:
+- screenshot and analyze
+- read screen
+
+Those can still use the OpenRouter vision model, but precise clicking by text may be limited.

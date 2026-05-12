@@ -1,0 +1,80 @@
+JARVIS V10 - START HERE
+=======================
+
+WHAT THIS PACKAGE IS
+--------------------
+This is the latest JARVIS V10 package for Windows. It combines the working OpenRouter version with:
+- Chrome browser bridge
+- bridge deadlock fix
+- research/notes reliability improvements
+- all V10 features already built
+
+WHAT YOU NEED
+-------------
+Required:
+- Windows PC
+- Chrome browser
+- OpenRouter API key
+- Internet connection
+- Microphone if you want voice control
+
+Recommended:
+- Python 3.12 installed
+- Tesseract OCR installed if you want stronger "read screen", "click text", and "highlight word" features
+
+FAST INSTALL
+------------
+1. Extract this ZIP somewhere simple, for example:
+   C:\Users\<YourName>\Desktop\JARVIS_V10
+
+2. Open the extracted folder.
+
+3. Double-click:
+   start.bat
+
+4. On first launch it creates:
+   .env
+
+5. It opens .env in Notepad. Replace:
+   OPENROUTER_API_KEY=your_openrouter_key_here
+
+   with your real OpenRouter key.
+
+6. Save and close Notepad.
+
+7. Let the black CMD window finish installing packages.
+
+8. JARVIS should open at:
+   http://127.0.0.1:5050
+
+9. In Chrome, load the extension:
+   - Open chrome://extensions
+   - Enable Developer mode
+   - Click Load unpacked
+   - Select this folder:
+     chrome_extension
+
+10. Open a normal website such as Google, then test:
+    chrome bridge status
+
+11. Click Start Always Listening in the JARVIS UI.
+
+12. Say:
+    Hey Jarvis
+
+FIRST TEST COMMANDS
+-------------------
+Type these first if you want to test without voice:
+- chrome bridge status
+- list chrome tabs
+- open Chrome and search for OpenRouter
+- open Google Docs
+- create txt file open it and write hello from Jarvis
+- where did you save that
+
+IMPORTANT
+---------
+If something breaks:
+- Do not delete the whole folder.
+- Use clean_reinstall.bat to rebuild only the Python environment.
+- Your .env, memory, screenshots, and generated files should remain.

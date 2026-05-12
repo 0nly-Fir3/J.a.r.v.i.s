@@ -1,0 +1,84 @@
+JARVIS V10 - TROUBLESHOOTING
+=============================
+
+PROBLEM 1 — JARVIS page does not open
+-------------------------------------
+Check CMD. You should see:
+Running on http://127.0.0.1:5050
+
+If not, rerun:
+start.bat
+
+PROBLEM 2 — AI replies fail
+---------------------------
+Check .env:
+OPENROUTER_API_KEY=...
+
+Make sure the key is real and saved.
+
+PROBLEM 3 — Chrome bridge says checking / not connected
+-------------------------------------------------------
+1. Make sure JARVIS server is running.
+2. Remove any old JARVIS bridge extensions.
+3. Reload the latest extension from:
+   chrome_extension
+4. Open a normal site such as google.com.
+5. Type:
+   chrome bridge status
+
+Good CMD lines:
+POST /api/chrome/heartbeat
+POST /api/chrome/state
+GET /api/chrome/pending
+
+PROBLEM 4 — CMD has only /api/chat and /api/tts lines
+-----------------------------------------------------
+The extension is not talking to the backend.
+Reload or re-add the extension.
+
+PROBLEM 5 — Audio is silent
+---------------------------
+1. Use Test Audio in the UI.
+2. Check Chrome site sound is allowed.
+3. Check Windows volume mixer.
+4. Confirm edge-tts installed during startup.
+5. Browser TTS fallback may still speak even if Edge TTS fails.
+
+PROBLEM 6 — OCR/screen reading is weak
+--------------------------------------
+Confirm Tesseract path in .env:
+TESSERACT_CMD=C:\Users\shero\AppData\Local\Programs\Tesseract-OCR\tesseract.exe
+
+Then say:
+ocr status
+
+PROBLEM 7 — Google Docs opens but text does not appear
+------------------------------------------------------
+Wait for the blank doc to finish loading, then say:
+paste last text
+
+PROBLEM 8 — Research notes say done but no file appears
+--------------------------------------------------------
+Use the reliability patch build in this package.
+Then run:
+research budget anti stick drift controllers and make notes
+where did you save that
+open latest notes
+
+PROBLEM 9 — Voice misunderstands too often
+------------------------------------------
+Use typed commands to check whether the action logic works first.
+Then use:
+show command log
+
+Share:
+heard='...'
+normalized='...'
+action=...
+
+PROBLEM 10 — Package install became messy
+------------------------------------------
+Run:
+clean_reinstall.bat
+
+This rebuilds the virtual environment without deleting your .env or generated content.

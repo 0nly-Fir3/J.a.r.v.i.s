@@ -1,0 +1,11 @@
+FIXED INSTALL ERRORS
+
+1. The old package used a pip marker in a way Windows batch quoting broke:
+   pywin32; platform_system == "Windows"
+   The new start.bat installs pywin32 separately, so pip no longer receives a broken marker.
+
+2. The old app scanner could overwrite a real Discord shortcut with discord.exe.
+   The new app scanner preserves real Start Menu shortcuts and does not force discord.exe.
+
+3. If you already ran the broken build, run clean_reinstall.bat in this folder.
+   It deletes only .venv and reinstalls packages. It does not delete .env or memory.
